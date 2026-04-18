@@ -218,8 +218,26 @@ function bootApp() {
   });
 
   let scrollY = 0;
+  const dockSectionIds = ['home', 'about', 'skills', 'experience', 'projects', 'contact', 'artworks'];
+  const dockSections = dockSectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+  const dockItems = document.querySelectorAll('.dock-item[href^="#"]');
+
+  /** Scroll spy by viewport line — tall #projects rarely hits high intersection ratios, so IntersectionObserver left the dock on the wrong section. */
+  function updateDockActive() {
+    if (!dockItems.length || !dockSections.length) return;
+    const activation = Math.min(168, Math.max(72, window.innerHeight * 0.22));
+    let activeId = dockSections[0].id;
+    for (const section of dockSections) {
+      if (section.getBoundingClientRect().top <= activation) activeId = section.id;
+    }
+    dockItems.forEach((l) => {
+      l.classList.toggle('active', l.getAttribute('href') === `#${activeId}`);
+    });
+  }
+
   lenis.on('scroll', ({ scroll }) => {
     scrollY = scroll;
+    updateDockActive();
   });
 
   (function raf(t) {
@@ -275,24 +293,8 @@ function bootApp() {
   );
   document.querySelectorAll('.reveal-fade, .reveal-slide-up').forEach((el) => obs.observe(el));
 
-  const dockItems = document.querySelectorAll('.dock-item[href^="#"]');
-  ['home', 'about', 'skills', 'projects', 'contact']
-    .map((id) => document.getElementById(id))
-    .filter(Boolean)
-    .forEach((section) => {
-      new IntersectionObserver(
-        (entries) =>
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              dockItems.forEach((l) => {
-                const isActive = l.getAttribute('href') === `#${e.target.id}`;
-                l.classList.toggle('active', isActive);
-              });
-            }
-          }),
-        { threshold: 0.4 },
-      ).observe(section);
-    });
+  window.addEventListener('resize', updateDockActive);
+  requestAnimationFrame(() => updateDockActive());
 
   document.querySelectorAll('.mockup-frame').forEach((frame) => {
     frame.addEventListener('mousemove', (e) => {

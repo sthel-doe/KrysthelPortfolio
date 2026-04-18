@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "fix": "^0.0.6",
     "gsap": "^3.12.5",
     "lenis": "^1.1.2",
     "ogl": "^1.0.11",

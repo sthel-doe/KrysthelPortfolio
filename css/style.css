@@ -425,7 +425,243 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   line-height: 1.5;
 }
 
-/* ── 9. Projects ──────────────────────────────────────────── */
+/* ── 9. Experience ────────────────────────────────────────── */
+.experience {
+  padding: var(--sp-xl) 0 var(--sp-2xl);
+  background:
+    radial-gradient(ellipse 90% 55% at 15% 20%, rgba(41, 151, 255, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 45% at 88% 75%, rgba(48, 209, 88, 0.05) 0%, transparent 50%),
+    var(--c-bg);
+}
+
+.experience__lede {
+  max-width: 38rem;
+  margin: -0.5rem 0 3rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--c-text-2);
+  letter-spacing: -0.015em;
+}
+
+.experience__timeline {
+  position: relative;
+  display: grid;
+  gap: 1.75rem;
+  padding-left: 0.25rem;
+}
+
+.experience__timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(41, 151, 255, 0.55) 0%,
+    rgba(48, 209, 88, 0.35) 48%,
+    rgba(255, 159, 10, 0.2) 100%
+  );
+  opacity: 0.85;
+}
+
+.experience-card {
+  position: relative;
+  margin-left: 1.75rem;
+  padding: 2rem 2rem 2.25rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid var(--c-border);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s var(--ease-out), border-color 0.35s, box-shadow 0.35s;
+}
+
+.experience-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+
+.experience-card--alt {
+  background: linear-gradient(155deg, rgba(48, 209, 88, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.experience-card__accent {
+  position: absolute;
+  left: 0;
+  top: 1.75rem;
+  bottom: 1.75rem;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--c-accent), rgba(41, 151, 255, 0.35));
+  opacity: 0.95;
+}
+
+.experience-card__accent--warm {
+  background: linear-gradient(180deg, var(--c-accent-warm), rgba(255, 159, 10, 0.35));
+}
+
+.experience-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.experience-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.experience-card__badge {
+  font-size: 0.68rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--c-border);
+  padding: 0.35rem 0.75rem;
+  border-radius: 980px;
+}
+
+.experience-card__badge--primary {
+  color: rgba(180, 220, 255, 0.95);
+  border-color: rgba(41, 151, 255, 0.35);
+  background: rgba(41, 151, 255, 0.1);
+}
+
+.experience-card__badge--warm {
+  color: rgba(255, 214, 170, 0.95);
+  border-color: rgba(255, 159, 10, 0.35);
+  background: rgba(255, 159, 10, 0.08);
+}
+
+.experience-card__dates {
+  font-size: 0.8rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.02em;
+  color: var(--c-text-3);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.experience-card__title {
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 0.35rem;
+}
+
+.experience-card__org-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 0.5rem;
+  min-width: 0;
+}
+
+.experience-card__logo {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+  background: var(--c-surface-2);
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.experience-card__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.experience-card__org {
+  font-size: 1rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-2);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.experience-card__loc {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  color: var(--c-text-3);
+  margin: 0 0 1.35rem;
+}
+
+.experience-card__loc i {
+  font-size: 0.75rem;
+  color: var(--c-accent);
+  opacity: 0.9;
+}
+
+.experience-card__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.experience-card__list li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--c-text-2);
+  letter-spacing: -0.01em;
+}
+
+.experience-card__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-accent-2), var(--c-accent));
+  box-shadow: 0 0 0 3px rgba(48, 209, 88, 0.12);
+}
+
+.experience-card--alt .experience-card__list li::before {
+  background: linear-gradient(135deg, var(--c-accent-warm), rgba(255, 159, 10, 0.65));
+  box-shadow: 0 0 0 3px rgba(255, 159, 10, 0.1);
+}
+
+@media (max-width: 600px) {
+  .experience__timeline::before {
+    left: 0;
+  }
+
+  .experience-card {
+    margin-left: 1.25rem;
+    padding: 1.5rem 1.35rem 1.65rem;
+  }
+
+  .experience-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── 10. Projects ─────────────────────────────────────────── */
 .projects {
   padding: var(--sp-xl) 0;
 }
@@ -551,7 +787,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   object-position: center;
 }
 
-/* ── 10. Contact ──────────────────────────────────────────── */
+/* ── 11. Contact ──────────────────────────────────────────── */
 .contact {
   padding: var(--sp-2xl) 0 var(--sp-xl);
 }
@@ -586,7 +822,172 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   flex-wrap: wrap;
 }
 
-/* ── 11. Footer ───────────────────────────────────────────── */
+/* ── 12. Artworks (Bento) ─────────────────────────────────── */
+.artworks {
+  padding: var(--sp-xl) 0 var(--sp-2xl);
+  border-top: 1px solid var(--c-border);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(191, 90, 242, 0.07) 0%, transparent 55%),
+    var(--c-bg-2);
+}
+
+.artworks__lede {
+  max-width: 42rem;
+  margin: -0.35rem 0 2.5rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--c-text-2);
+  letter-spacing: -0.012em;
+}
+
+.artworks__lede strong {
+  color: var(--c-text);
+  font-weight: var(--fw-semibold);
+}
+
+.artworks__code {
+  font-family: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, monospace;
+  font-size: 0.84em;
+  color: var(--c-accent);
+  background: rgba(41, 151, 255, 0.1);
+  padding: 0.12em 0.4em;
+  border-radius: 6px;
+  border: 1px solid rgba(41, 151, 255, 0.22);
+}
+
+.bento {
+  display: grid;
+  gap: clamp(0.65rem, 1.6vw, 1rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: minmax(170px, 24vh) minmax(170px, 24vh) minmax(150px, 20vh);
+}
+
+.bento__cell {
+  position: relative;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  background: var(--c-surface);
+  min-height: 0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.35s var(--ease-out);
+}
+
+.bento__cell:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.bento__cell--hero {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+.bento__cell--t1 {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.bento__cell--t2 {
+  grid-column: 4 / 5;
+  grid-row: 1 / 2;
+}
+
+.bento__cell--t3 {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.bento__cell--t4 {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+}
+
+.bento__cell--wide {
+  grid-column: 1 / -1;
+  grid-row: 3 / 4;
+}
+
+.bento__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.bento__cell:hover .bento__img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 960px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: minmax(140px, 32vw);
+  }
+
+  .bento__cell--hero {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: min(280px, 48vw);
+  }
+
+  .bento__cell--t1 {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .bento__cell--t2 {
+    grid-column: 2 / 3;
+    grid-row: auto;
+  }
+
+  .bento__cell--t3 {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .bento__cell--t4 {
+    grid-column: 2 / 3;
+    grid-row: auto;
+  }
+
+  .bento__cell--wide {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: min(220px, 40vw);
+  }
+}
+
+@media (max-width: 600px) {
+  .artworks__lede {
+    font-size: 0.92rem;
+  }
+
+  .bento {
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(200px, 52vw);
+  }
+
+  .bento__cell--hero,
+  .bento__cell--t1,
+  .bento__cell--t2,
+  .bento__cell--t3,
+  .bento__cell--t4,
+  .bento__cell--wide {
+    grid-column: 1 / -1;
+    min-height: min(240px, 56vw);
+  }
+}
+
+/* ── 13. Footer ───────────────────────────────────────────── */
 .footer {
   padding: 2rem 0;
   border-top: 1px solid var(--c-border);
@@ -613,7 +1014,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 .footer__links a:hover { color: var(--c-text); }
 
-/* ── 12. Scroll Reveal Animations ─────────────────────────── */
+/* ── 14. Scroll Reveal Animations ─────────────────────────── */
 .reveal-fade,
 .reveal-slide-up {
   opacity: 0;
@@ -635,7 +1036,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .stagger-3 { opacity: 0; transform: translateY(20px); }
 .stagger-4 { opacity: 0; transform: translateY(20px); }
 
-/* ── 13. Splash / preload (modern ambient + type) ─────────── */
+/* ── 15. Splash / preload (modern ambient + type) ─────────── */
 :root {
   /* Splash → hero: matched duration + ease so crossfade feels like one motion */
   --splash-fade-dur: 1.38s;
@@ -986,7 +1387,7 @@ body.app-ready .app-shell {
   }
 }
 
-/* ── 14. Responsive ───────────────────────────────────────── */
+/* ── 16. Responsive ───────────────────────────────────────── */
 .br-lg { display: none; }
 
 @media (min-width: 960px) {
@@ -1025,7 +1426,7 @@ body.app-ready .app-shell {
   .contact__card { padding: 4rem 1.5rem; border-radius: var(--radius-lg); }
 }
 
-/* ── 15. Dock (macOS Style) ───────────────────────────────── */
+/* ── 17. Dock (macOS Style) ───────────────────────────────── */
 /* Always visible: splash (z-index 9999) covers until exit; do not tie opacity to
    body.app-ready — if JS stalls, the dock would stay invisible. */
 .dock-container {
