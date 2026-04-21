@@ -331,37 +331,43 @@
                 Drop your pieces into <code class="artworks__code">public/art/</code> — keep the filenames or update the <code class="artworks__code">src</code> paths below. Images use <strong>cover</strong> so they always fill the tile.
             </p>
 
-            <div class="bento reveal-fade" style="--delay:.12s">
-<figure class="bento__cell bento__cell--hero">
-  <div class="project-wrapper">
-    <img class="bento__img" src="/art/work-01.svg" alt="Featured Project" loading="lazy">
-    
-    <div class="hover-card">
-      <h3 class="hover-title">NexusPIPE</h3>
-      <p class="hover-stack">Security • DDoS Mitigation</p>
-      <a href="#" class="hover-btn">Website</a>
-      <div class="hover-date">MARCH 2022</div>
-    </div>
-  </div>
-</figure>
-                <figure class="bento__cell bento__cell--t1">
-                    <img class="bento__img" src="/art/work-02.svg" alt="Artwork 02" width="800" height="800" loading="lazy" decoding="async">
-                </figure>
-                <figure class="bento__cell bento__cell--t2">
-                    <img class="bento__img" src="/art/work-03.svg" alt="Artwork 03" width="600" height="600" loading="lazy" decoding="async">
-                </figure>
-                <figure class="bento__cell bento__cell--t3">
-                    <img class="bento__img" src="/art/work-04.svg" alt="Artwork 04" width="600" height="400" loading="lazy" decoding="async">
-                </figure>
-                <figure class="bento__cell bento__cell--t4">
-                    <img class="bento__img" src="/art/work-05.svg" alt="Artwork 05" width="600" height="500" loading="lazy" decoding="async">
-                </figure>
-                <figure class="bento__cell bento__cell--wide">
-                    <img class="bento__img" src="/art/work-06.svg" alt="Artwork — panorama" width="1200" height="400" loading="lazy" decoding="async">
-                </figure>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-fade" style="--delay:.12s">
+
+  <figure class="group relative overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 aspect-video shadow-2xl">
+    <div class="project-wrapper h-full w-full">
+      <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/art/work-01.svg" alt="NexusPIPE">
+      
+      <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+        <h3 class="text-xl font-bold text-white tracking-tight">NexusPIPE</h3>
+        <p class="text-zinc-400 text-sm mt-1">Security • DDoS Mitigation</p>
+        <a href="#" class="mt-4 px-6 py-2 bg-white text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-zinc-200 transition-colors">
+          Website
+        </a>
+        <div class="absolute bottom-4 left-4 text-[10px] font-black tracking-widest text-zinc-500 uppercase">
+          March 2022
         </div>
-    </section>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="group relative overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 aspect-video shadow-2xl">
+    <div class="project-wrapper h-full w-full">
+      <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/art/work-02.svg" alt="BNSC">
+      
+      <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+        <h3 class="text-xl font-bold text-white tracking-tight">BNSC PropTech</h3>
+        <p class="text-zinc-400 text-sm mt-1">Real Estate • Miri</p>
+        <a href="#" class="mt-4 px-6 py-2 bg-white text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-zinc-200 transition-colors">
+          Website
+        </a>
+        <div class="absolute bottom-4 left-4 text-[10px] font-black tracking-widest text-zinc-500 uppercase">
+          Jan 2026
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  </div>
 
     <!-- ===================== CONTACT ===================== -->
     <section class="contact" id="contact">
