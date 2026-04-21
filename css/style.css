@@ -839,121 +839,114 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 3.5rem;
+  /* Prevent the grid itself from expanding */
+  align-items: start; 
 }
 
 .proj-box {
-  position: relative;
+  position: relative; /* Anchor for the overlay */
   background: var(--c-surface);
   border: 1px solid var(--c-border);
   border-radius: var(--radius-xl);
-  overflow: hidden;
+  overflow: hidden; /* This clips the big blue box inside the small box */
   aspect-ratio: 1 / 1;
-  cursor: pointer;
+  transition: transform 0.4s var(--ease-out);
 }
 
 /* --- The Project Image --- */
 .proj-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures image fills the square */
+  object-fit: cover;
   transition: transform 0.6s var(--ease-out);
 }
 
 .proj-box:hover img {
-  transform: scale(1.1); /* Subtle zoom effect */
+  transform: scale(1.1);
 }
 
-/* --- The Hover Overlay (Glassmorphism) --- */
+/* --- The Hover Overlay (The "Popup") --- */
 .proj-hover-overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(41, 151, 255, 0.88); /* Your brand accent blue */
-  backdrop-filter: blur(12px) saturate(160%);
-  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 151, 255, 0.95); /* Your blue */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
   
-  /* Start hidden and lowered */
+  /* Start completely hidden below the box */
   opacity: 0;
   transform: translateY(100%); 
   transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Ensure it doesn't block the cursor when hidden */
   pointer-events: none;
   z-index: 10;
 }
 
-/* Reveal State */
+/* Reveal State - Only when hovering the specific box */
 .proj-box:hover .proj-hover-overlay {
   opacity: 1;
   transform: translateY(0);
   pointer-events: all;
 }
 
-/* --- Content Inside --- */
+/* --- Content Styling --- */
 .overlay-content {
-  color: #ffffff;
+  color: #fff;
+  width: 100%;
 }
 
 .p-tag {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 5px 14px;
-  border-radius: 980px;
-  margin-bottom: 1.2rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
   display: inline-block;
 }
 
 .hover-title {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
 }
 
 .hover-desc {
-  font-size: 0.88rem;
-  line-height: 1.5;
-  margin-bottom: 1.8rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
   opacity: 0.9;
-  font-weight: 400;
 }
 
 .hover-btn {
-  display: inline-flex;
-  align-items: center;
-  background: #ffffff;
-  color: #000000;
-  padding: 10px 24px;
-  border-radius: 980px;
-  font-size: 0.82rem;
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.75rem;
   font-weight: 600;
-  transition: transform 0.2s var(--ease-out), background 0.2s;
+  text-decoration: none;
 }
 
-.hover-btn:hover {
-  transform: scale(1.05);
-  background: #f5f5f7;
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 1100px) {
+/* Responsive: Stack boxes on mobile */
+@media (max-width: 900px) {
   .project-four-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-@media (max-width: 650px) {
-  .project-four-grid { 
-    grid-template-columns: 1fr; 
-    padding: 0 1rem;
-  }
+@media (max-width: 600px) {
+  .project-four-grid { grid-template-columns: 1fr; }
 }
 
 /* ── 13. Footer ───────────────────────────────────────────── */
