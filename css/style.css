@@ -822,152 +822,147 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   flex-wrap: wrap;
 }
 
-/* ── 12. Projects Bento ───────────────────────────────────── */
+/* ── 12. Projects (Modern 4-Grid) ────────────────────────── */
+.projects-section {
+  padding: var(--sp-xl) 0 var(--sp-2xl);
+  background: var(--c-bg);
+}
+
 .projects-container {
-  /* Aligns with your existing site's width and adds side spacing */
-  max-width: 1160px; 
+  max-width: 1200px; /* Perfect for 4 wide boxes */
   margin-inline: auto;
-  padding-inline: var(--sp-md); /* This is 2rem/32px in your current variables */
+  padding-inline: var(--sp-md); /* Recommended 2rem/32px spacing */
 }
 
-.bento-grid {
+/* The Core 4-Column Layout */
+.project-four-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  /* The "sweet spot" gap for Apple-style grids */
-  gap: 1.5rem; 
-  margin-top: 3rem;
+  grid-template-columns: repeat(4, 1fr); /* Four equal sized columns */
+  gap: 1.5rem; /* Clean 'Apple-style' gap */
+  margin-top: 3.5rem;
 }
 
-.bento-tile {
+/* Individual Box Styling */
+.proj-box {
   background: var(--c-surface);
   border: 1px solid var(--c-border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-xl); /* Matches your 'modern organic' style */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out), box-shadow 0.3s;
+  transition: transform 0.4s var(--ease-out), border-color 0.3s, box-shadow 0.4s;
 }
 
-.bento-tile:hover {
+.proj-box:hover {
+  transform: translateY(-8px);
   border-color: var(--c-accent);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5); /* Deep 'Industrial' shadow */
 }
 
-/* Placements */
-.tile-fskpm, .tile-trombol { grid-column: span 7; }
-.tile-stat-purple { 
-  grid-column: span 2; 
-  background: rgba(41, 151, 255, 0.1); 
-  justify-content: center;
-  padding: 2rem;
-}
-.tile-badge { 
-  grid-column: span 3; 
-  background: var(--c-surface-2);
-  justify-content: center;
-  padding: 2rem;
-}
-.tile-stack { grid-column: span 5; padding: 2.5rem; justify-content: center; }
-.tile-ixora, .tile-kopitiam, .tile-inventory, .tile-coming { grid-column: span 3; }
-
-/* Large Tile Inner Layout */
-.tile-large { flex-direction: row; min-height: 320px; }
-.tile-image-area {
-  width: 45%;
-  background: #080808;
+/* Image Area - Perfect Square Mockups */
+.proj-img-area {
+  aspect-ratio: 1 / 1; /* Ensures all mockups are perfect squares */
+  background: #080808; /* Darker core for contrast */
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+  padding: 1.5rem;
 }
 
-.tile-content {
+/* Body Content Styling */
+.proj-body {
+  padding: 2rem 1.5rem 1.5rem;
   flex: 1;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
 }
 
-/* Typography Inside Tiles */
-.tile-name {
-  font-size: 1.4rem;
-  font-weight: var(--fw-bold);
-  color: var(--c-text);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+/* Metadata Row */
+.proj-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
 }
 
-.tile-desc {
+.p-index {
+  font-family: var(--ff-mono);
+  font-size: 0.85rem;
+  color: var(--c-text-3); /* Muted numbering */
+}
+
+/* Tag colors matching your brand system */
+.p-tag {
+  font-family: var(--ff-sans);
+  font-size: 0.7rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 980px; /* Full 'Pill' shape */
+}
+
+.p-tag-primary { color: var(--c-accent); background: rgba(41, 151, 255, 0.1); }
+.p-tag-secondary { color: #8a3ffc; background: rgba(138, 63, 252, 0.1); }
+.p-tag-accent { color: #24a148; background: rgba(36, 161, 72, 0.1); }
+.p-tag-muted { color: var(--c-text-2); background: rgba(255, 255, 255, 0.05); }
+
+/* Typography */
+.proj-title {
+  font-family: var(--ff-sans);
+  font-size: 1.35rem;
+  font-weight: var(--fw-bold);
+  color: var(--c-text);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.proj-desc {
+  font-family: var(--ff-sans);
   font-size: 0.9rem;
   color: var(--c-text-2);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-/* Tags & Chips */
-.tag {
-  font-size: 0.7rem;
-  font-weight: var(--fw-semibold);
-  color: var(--c-accent);
-  background: rgba(41, 151, 255, 0.1);
-  padding: 0.3rem 0.8rem;
-  border-radius: 980px;
-  margin-right: 0.4rem;
+/* Links / CTAs */
+.proj-links {
+  margin-top: auto; /* Pushes links to the bottom */
 }
 
-.chip {
-  display: inline-block;
-  font-size: 0.8rem;
-  padding: 0.5rem 1rem;
-  background: var(--c-surface-2);
-  border: 1px solid var(--c-border);
-  border-radius: var(--radius-md);
-  margin: 0.2rem;
-  color: var(--c-text-2);
-}
-
-/* Stat Tile Big Numbers */
-.stat-big {
-  font-size: 3.5rem;
-  font-weight: var(--fw-bold);
-  color: var(--c-accent);
-  line-height: 1;
-}
-
-.stat-title {
-  font-size: 0.9rem;
-  font-weight: var(--fw-medium);
-  color: var(--c-text);
-  margin-top: 0.5rem;
-}
-
-/* Footer / CTA inside tiles */
-.tile-footer {
-  margin-top: auto;
-  padding-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.tile-btn {
+.p-btn {
+  font-family: var(--ff-sans);
   font-size: 0.85rem;
   font-weight: var(--fw-semibold);
   color: var(--c-accent);
+  transition: color 0.2s;
 }
 
-/* Responsive */
+.p-btn:hover {
+  color: #82cfff; /* Lighter blue on hover */
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* 📱 Responsive Adjustments */
+
+/* Tablet & Smaller Laptops (1024px) */
 @media (max-width: 1024px) {
-  .tile-fskpm, .tile-trombol, .tile-stack { grid-column: span 12; }
-  .tile-ixora, .tile-kopitiam, .tile-inventory, .tile-coming { grid-column: span 6; }
-  .tile-large { flex-direction: column; }
-  .tile-image-area { width: 100%; height: 200px; border-right: none; border-bottom: 1px solid var(--c-border); }
+  .projects-container { padding-inline: 1.5rem; }
+  .project-four-grid {
+    grid-template-columns: repeat(2, 1fr); /* Switches to 2x2 grid */
+    gap: 1rem;
+  }
 }
 
+/* Mobile Devices (600px) */
 @media (max-width: 600px) {
-  .bento-grid { grid-template-columns: 1fr; }
-  .tile-ixora, .tile-kopitiam, .tile-inventory, .tile-coming, .tile-stat-purple, .tile-badge { grid-column: span 1; }
+  .project-four-grid {
+    grid-template-columns: 1fr; /* Switches to single column vertical list */
+  }
+  .proj-img-area {
+    aspect-ratio: 16 / 9; /* More appropriate aspect ratio for vertical list */
+  }
 }
 
 /* ── 13. Footer ───────────────────────────────────────────── */
