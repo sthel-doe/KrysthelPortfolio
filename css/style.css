@@ -835,36 +835,99 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 /* This is the part that creates the 4 boxes side-by-side */
+/* --- Core Grid Fixes --- */
 .project-four-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 3.5rem;
 }
 
 .proj-box {
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
+  position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Ensures all boxes are the same height */
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   transition: transform 0.4s var(--ease-out);
 }
 
+/* --- Image Area as the Trigger --- */
 .proj-img-area {
+  position: relative;
   aspect-ratio: 1 / 1;
-  background: #0a0a0a;
-  border-bottom: 1px solid var(--c-border);
   width: 100%;
+  background: #0a0a0a;
+  overflow: hidden;
 }
 
-.proj-body {
+/* --- The Hover Overlay (Glassmorphism) --- */
+.proj-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(41, 151, 255, 0.85); /* Your accent blue */
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1.5rem;
-  flex-grow: 1;
+  text-align: center;
+  
+  /* Initial State (Hidden & Sunk) */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s var(--ease-out), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+/* Reveal State */
+.proj-box:hover .proj-hover-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* --- Hover Content Typography --- */
+.overlay-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hover-title {
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  color: #fff;
+  margin: 0;
+}
+
+.hover-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+/* Button inside Hover */
+.hover-btn {
+  background: #fff;
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 980px;
+  font-size: 0.8rem;
+  font-weight: var(--fw-semibold);
+  transition: transform 0.2s;
+}
+
+.hover-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Hide the old static text if you previously had it below the image */
+.proj-body { display: none;
 }
 
 /* Responsive: 2 columns on tablets, 1 on phones */
