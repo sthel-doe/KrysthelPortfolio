@@ -33,11 +33,4 @@ void (async () => {
       autoRotate: 0,
     });
   }
-  // Target all videos in your sketchbook grid
-const sketchbookVideos = document.querySelectorAll('.proj-video');
-
-sketchbookVideos.forEach(video => {
-  // 1.0 is normal speed. 1.5 is 50% faster. 2.0 is double speed.
-  video.playbackRate = 1.5; 
-});
 })();
