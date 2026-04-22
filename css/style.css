@@ -883,12 +883,22 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   box-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
 }
 
+/* Ensure the video fills the card like an image would */
 .proj-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* This prevents the black bars/wrong sizing */
+  z-index: 1;
+}
+
+/* Fix the grid definition for 4 columns */
+.project-four-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Forces 4 boxes in a row */
+  gap: clamp(1.15rem, 2.2vw, 1.75rem);
+  margin-top: 2.5rem;
 }
 
 #sketchbook .proj-box:hover,
@@ -1000,14 +1010,15 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* Cleanup: old proj-body */
 .proj-body { display: none; }
 
-@media (max-width: 900px) {
-  .project-four-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1024px) {
+  .project-four-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on smaller screens */
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .project-four-grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+    grid-template-columns: 1fr; /* 1 column on mobile */
   }
 }
 
