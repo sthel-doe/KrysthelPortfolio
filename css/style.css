@@ -823,34 +823,29 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ── 12. Projects (Uniform 4-Grid) ────────────────────────── */
-/* --- 1. The Grid --- */
+/* --- 1. The Grid (2x2 Layout) --- */
 .project-four-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Forces 4 boxes in a row */
-  gap: 5rem;
+  grid-template-columns: repeat(2, 1fr); /* Creates two columns for 2x2 */
+  gap: 2rem; /* Adjusted for a cleaner 'Apple-inspired' look */
   margin-top: 3.5rem;
 }
 
 .projects-container {
-  /* Aligns with your other site sections, e.g., 'About' */
   max-width: 1000px; 
-  margin-inline: auto; /* Perfectly centers the content on the screen */
-  /* CRITICAL: Adds the equal gaps on the far left and right */
-  padding-inline: 6rem; /* 64px, adjust as needed for wider gaps */
+  margin-inline: auto; /* Centers the whole section */
+  padding-inline: 6rem; /* Creates the side-gaps you wanted */
   text-align: left;
 }
 
 .section-headline {
-  /* Remove any default browser padding/margin that might be pushing it */
   margin-left: 0;
   padding-left: 0;
-  /* Ensure it doesn't have a specific width or transform pushing it right */
   display: block; 
   width: 100%;
 }
 
 .eyebrow {
-  /* Ensure the eyebrow is also zeroed out on the left */
   margin-left: 0;
   display: inline-block;
 }
